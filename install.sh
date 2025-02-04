@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
+set -e
 
-sudo virsh destroy bootc
-sudo virsh undefine bootc
+sudo virsh destroy bootc || true
+sudo virsh undefine bootc || true
 
 sudo cp output/qcow2/disk.qcow2 /var/lib/libvirt/images/bootc.qcow2
 

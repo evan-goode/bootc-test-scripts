@@ -4,14 +4,9 @@ set -e
 
 container_name="localhost/bootc-test"
 
-rm -rf rpms
-mkdir -p rpms
-cp /home/evan/git/libdnf/rpms/x86_64/*.rpm rpms/
-cp /home/evan/git/dnf/rpms/noarch/*.rpm rpms/
 sudo podman build -f Containerfile -t "$container_name"
 
-sudo rm -rf output
-mkdir -p output
+sudo rm -rf output/*
 sudo podman run \
     --rm \
     -it \
